@@ -17,7 +17,7 @@
 
     int arr_size;
     //printf("");
-    scanf("%d ", arr_size);
+    scanf("%d ", &arr_size);
     int arrdat[arr_size];
     int *parrdat[arr_size];
     int i;
@@ -25,6 +25,15 @@
     for (i = 0; i<arr_size; i++){
         scanf("%d", &arrdat[i]);
         parrdat[i] = &arrdat[i];
+    }
+
+
+    if (arrdat[i]==arr_size){
+        for (i = 0; i<arr_size; i++){
+            int temp = arrdat[i];
+            temp = arrdat[i+1];
+            arrdat[i+1] = temp;
+        }
     }
 
     if (arrdat[i] == -1){
@@ -40,7 +49,13 @@
         }
 
     }
-    printf("RECOVERED %d", arrdat);
+    int hasil = 1;
+    for (int i = 0; i < arr_size; i++) {
+        hasil += *parrdat[i];
+    }
+    printf("RECOVERED %d\n", arrdat);
+    printf("MAX_SUM ", hasil);
+
     return 0;
  
 }
